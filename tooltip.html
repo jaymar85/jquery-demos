@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Demo</title>
+    <link href="/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+    <script src="jquery-ui/external/jquery/jquery.js" type="text/javascript"></script>
+    <script src="jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #tooltip {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .ui-tooltip {
+            background: #FFFF;
+            color: black;
+            border: 2px solid #a4c8f5;
+            padding: 0;
+            opacity: 1;
+            
+        }
+
+        .ui-tooltip-content {
+            position: relative;
+            padding: 1em;
+        }
+
+        .ui-tooltip-content::after {
+            content: '';
+            position: absolute;
+            /* border-style: solid; */
+            /* display: block; */
+            /* width: 0; */
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.25) transparent transparent transparent;
+        }
+
+        .top .ui-tooltip-content::after {
+            bottom: -10px;
+            left: 72px;
+            border-color: #a4c8f5 transparent;
+            border-width: 10px 10px 0;    
+        }
+    </style>
+</head>
+<body>
+    <div title="You hovered on me" id="tooltip">
+        Mouse over on me.
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            $('#tooltip').tooltip({
+                tooltipClass: "ui-tooltip",
+                show: {
+                    effect: "fadeIn",
+                    delay: 250
+                },
+                position: {
+                    my: "center bottom",
+                    at: "center top-10",
+                    collision: "none",
+                    using: function( position, feedback ) {
+                        $(this).css(position);
+                        $( "<div>" )
+                            .addClass("arrow")
+                            .addClass(feedback.vertical)
+                            .addClass(feedback.horizontal)
+                            .appendTo( this );
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
