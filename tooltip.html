@@ -22,13 +22,13 @@
             transform: translate(-50%, -50%);
         }
 
+        /* Styling the Tooltip */
         .ui-tooltip {
-            background: #FFFF;
+            background: #FFF;
             color: black;
-            border: 2px solid #a4c8f5;
             padding: 0;
             opacity: 1;
-            
+            /* border: 2px solid #a4c8f5; */
         }
 
         .ui-tooltip-content {
@@ -36,26 +36,16 @@
             padding: 1em;
         }
 
-        .ui-tooltip-content::after {
+        .arrow::after {
             content: '';
             position: absolute;
-            /* border-style: solid; */
-            /* display: block; */
-            /* width: 0; */
-            top: 100%; /* At the bottom of the tooltip */
+            top: 100%;
             left: 50%;
             margin-left: -10px;
-            border-width: 10px;
-            border-style: solid;
-            border-color: rgba(0, 0, 0, 0.25) transparent transparent transparent;
-        }
-
-        .top .ui-tooltip-content::after {
-            bottom: -10px;
-            left: 72px;
-            border-color: #a4c8f5 transparent;
-            border-width: 10px 10px 0;    
-        }
+            border-width: 12px; /* Changes the size of arrow */
+            border-style: dashed;
+            border-color: rgba(255, 254, 254, 1) transparent transparent transparent;
+        }   
     </style>
 </head>
 <body>
@@ -68,7 +58,7 @@
                 tooltipClass: "ui-tooltip",
                 show: {
                     effect: "fadeIn",
-                    delay: 250
+                    delay: false
                 },
                 position: {
                     my: "center bottom",
@@ -80,7 +70,7 @@
                             .addClass("arrow")
                             .addClass(feedback.vertical)
                             .addClass(feedback.horizontal)
-                            .appendTo( this );
+                            .appendTo(this);
                     }
                 }
             });

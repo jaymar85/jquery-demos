@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        .container {
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        .ui-widget-header {
+            background: none;
+            border: none;
+        }
+
+        #tabs {
+            border: none;
+        }
+
+        #tabs a {
+            outline: magenta;
+        }
+
+        .ui-tabs .ui-tabs-panel {
+            border: 1px solid lightgray;
+            border-radius: 2px;
+            padding: 5% 10%;
+        }
+
+        .ui-state-default, .ui-widget-content .ui-state-default, 
+        .ui-widget-header .ui-state-default, .ui-button, 
+        html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+            background: steelblue;
+            border: none;
+        }
+
+        .ui-state-active, .ui-widget-content .ui-state-active, 
+        .ui-widget-header .ui-state-active, a.ui-button:active, 
+        .ui-button:active, .ui-button.ui-state-active:hover {
+            background: lightseagreen;
+        }
+
+        .ui-state-default a, .ui-state-default a:link, 
+        .ui-state-default a:visited, a.ui-button, 
+        a:link.ui-button, a:visited.ui-button, .ui-button {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Tab1</a></li>
+                <li><a href="#tabs-2">Tab2</a></li>
+                <li><a href="#tabs-3">Tab3</a></li>
+            </ul>
+            <div id="tabs-1">
+                <h3>Tab1</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde suscipit optio aspernatur expedita temporibus, veniam ducimus assumenda nemo quidem consequatur. Eos, quisquam earum odit quia repellendus nemo dolor. Molestias eos quas iusto minus amet dolorum excepturi odio aliquid praesentium eum sit nemo, blanditiis fugit laudantium, vitae officia? Deserunt officia doloremque quia error dignissimos nam reprehenderit unde saepe dolore accusamus, nostrum consectetur aliquid voluptatibus dolor, necessitatibus qui accusantium eum impedit veniam assumenda provident. Maxime, voluptates eum.</p>
+            </div>
+            <div id="tabs-2">
+                <h3>Tab2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui sequi possimus incidunt quidem! Modi reiciendis, consectetur, placeat pariatur quam voluptas sequi ea excepturi recusandae sed perspiciatis nobis, id earum et laboriosam molestias quos neque perferendis deserunt doloremque eius obcaecati! Magni, ipsum. Pariatur, est. Quae neque vel quisquam, similique quas sed obcaecati eaque ullam totam error, facere aliquid tenetur sequi laborum ad voluptates! A quos exercitationem earum labore praesentium incidunt quas obcaecati libero delectus, corporis deserunt inventore iste!
+                </p>
+            </div>
+            <div id="tabs-3">
+                <h3>Tab3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, alias dignissimos soluta saepe voluptates dolorem. Tenetur magnam facere rerum voluptatibus reprehenderit blanditiis asperiores similique accusamus in quam porro vero ipsam, eveniet laudantium molestiae! Debitis magnam eveniet molestias amet voluptatibus excepturi quasi provident nulla perferendis eligendi placeat porro saepe quia dicta aut, nisi facere veniam illo nam itaque quae eos architecto? Eveniet delectus, ratione minus incidunt tempora fugit praesentium accusamus enim magni, illum ipsam eius voluptatum reprehenderit nemo doloremque.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $("#tabs").tabs();
+        });
+    </script>
+</body>
+</html>
