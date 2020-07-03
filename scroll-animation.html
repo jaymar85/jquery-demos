@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+    <style>
+        #text {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #scroll {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #696969;
+            background-color: #d3d3d3;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse egestas laoreet ante at volutpat. Proin sed ex ornare ex sagittis congue non ac leo. Fusce sed diam nisl. Proin pharetra leo lacus, at elementum tellus congue nec. Nam nec nunc non ex sagittis tristique. Vestibulum quis maximus dui. Curabitur ullamcorper ornare tincidunt. Mauris et lectus purus. Cras sit amet risus scelerisque, faucibus nulla eleifend, maximus leo. Nam molestie enim nec felis ultrices ultricies. Sed mattis in nibh nec porta.
+
+    Aliquam luctus dui at ultrices euismod. Donec imperdiet congue tellus, in scelerisque tellus dapibus nec. Donec non semper ligula, sit amet suscipit risus. Praesent non augue condimentum, fermentum mi sed, tincidunt sem. Morbi rutrum purus et vestibulum vehicula. Duis quis nunc feugiat, aliquet nulla vel, fermentum eros. Etiam nisi lacus, condimentum at interdum in, blandit vel felis. Ut dolor lorem, rhoncus pellentesque leo eu, mattis porttitor est. Etiam ut cursus est, vel bibendum nibh. Nullam eu risus quis mi auctor euismod a at nunc. Duis facilisis eros nibh, ut pellentesque lacus mattis eu. In mi orci, lacinia at luctus ac, imperdiet nec neque.
+
+    Quisque ac tellus cursus, tincidunt lectus fermentum, tincidunt ipsum. Duis tortor mi, molestie a venenatis eu, placerat sed lorem. Fusce non elit eget metus porta ornare. Vivamus nec condimentum enim. Duis rhoncus sit amet erat consequat posuere. Fusce at commodo velit. Aenean at auctor mauris. Aliquam gravida eget velit vel porta.   
+    Nam libero purus, elementum nec tristique ac, gravida eu tortor. Mauris fringilla rhoncus dolor, at rutrum lorem placerat in. Proin lacinia massa facilisis, suscipit sapien vitae, finibus sem. Nunc a pulvinar lectus. Duis vel turpis sit amet risus mattis blandit. Quisque felis ante, imperdiet non maximus et, mattis sit amet ipsum. Quisque quis orci at quam malesuada finibus ut id neque. Suspendisse vulputate metus lorem, ac volutpat justo gravida tempor. Morbi efficitur cursus lorem, id volutpat ex feugiat in. Aenean vehicula vitae eros varius porttitor. Pellentesque sit amet tincidunt nisl. Pellentesque purus tellus, pulvinar eu facilisis sit amet, tempus vitae elit. Praesent eros lacus, mollis vel massa in, maximus venenatis augue. Quisque neque ipsum, euismod sit amet odio id, accumsan facilisis diam. Morbi pharetra lorem efficitur pulvinar scelerisque. Phasellus sit amet lacinia ex, sit amet ultrices enim. Quisque faucibus id arcu eget dapibus. 
+    
+    Sed sit amet arcu et orci porta tincidunt vitae eget tortor. Ut volutpat nisi lorem, ut facilisis sem tempor quis. Duis sit amet faucibus orci. Vestibulum ornare arcu est, quis molestie odio vehicula sed. Praesent vehicula, lectus a interdum venenatis, augue nulla dapibus purus, ac mollis libero diam a lectus. Nunc viverra ac sapien et ullamcorper. Nulla in enim at dui venenatis ultrices ac ac ipsum. Integer consequat eros et dui fermentum ultrices. Mauris vel dolor eu velit sagittis pulvinar in in quam. Ut vel faucibus tortor. Proin euismod semper mauris sed dignissim. Vestibulum id feugiat turpis, nec euismod felis.Morbi dignissim risus eu metus maximus, eget sodales leo molestie. Maecenas facilisis lacinia elit ut bibendum. Proin egestas pellentesque elit sit amet viverra. Nunc aliquam velit sed laoreet pretium. Nullam tempor interdum justo, non placerat enim ultrices quis. Etiam ornare metus a ante posuere consequat. Praesent hendrerit orci id ipsum ornare varius. Sed et ornare lacus, ac sodales dolor.
+    
+    Sed a convallis diam. Vivamus ut nisi augue. Aliquam erat volutpat. Praesent vitae nulla dolor. Etiam mattis vel enim nec venenatis. Duis tincidunt risus quis elit varius, at eleifend ante consectetur. Aliquam vitae commodo ligula, non porta urna. Nullam vel nunc commodo lorem iaculis mattis ut vel est. Integer sodales varius odio id suscipit. Nullam dolor arcu, scelerisque quis turpis vitae, faucibus facilisis nunc. Phasellus justo enim, maximus sed congue non, dignissim at libero. Fusce orci lacus, viverra id augue non, dapibus tempor est. Maecenas porttitor vestibulum erat ac posuere. Sed convallis lectus vitae tincidunt ultricies. Etiam nec sapien tempus, blandit turpis eu, molestie ante. Fusce vulputate risus venenatis mi consectetur vulputate. Donec vel lorem vel sapien egestas dapibus sit amet quis lorem. Phasellus a tellus ut lectus suscipit vulputate sit amet ut leo. In pharetra turpis eu sapien fermentum, ac rutrum orci tincidunt. Morbi semper, metus in congue scelerisque, libero nibh faucibus mauris, convallis consequat massa massa sed tortor. 
+    
+    Donec faucibus consequat metus, vel porttitor mi placerat ut.Aliquam semper nibh quis urna congue, nec bibendum augue aliquet. Nunc interdum ut ex vulputate congue. Morbi odio eros, interdum id mauris sit amet, tincidunt eleifend sapien. Fusce viverra blandit euismod. Aenean dignissim vitae lacus nec mattis. Mauris ipsum orci, auctor non elementum vitae, sollicitudin bibendum purus. Donec ac nulla dignissim, malesuada erat eu, molestie arcu. Maecenas convallis feugiat diam ut tristique. In hac habitasse platea dictumst. Suspendisse vitae venenatis tellus. Quisque tincidunt velit turpis, in finibus sapien consequat vel. Quisque ultricies risus augue, eget pellentesque ipsum mollis quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam sagittis erat non ligula hendrerit, ut placerat diam blandit. Sed id venenatis nisi. Cras et ante pretium, ultrices erat eu, ornare massa. Vivamus id est fermentum sem pretium vehicula vitae a felis. Nam lectus quam, gravida eget massa in, eleifend fringilla nulla. Quisque aliquet dui condimentum enim placerat, eu pellentesque sapien eleifend. Mauris in leo at diam vestibulum dapibus. Integer vel rhoncus nunc. Suspendisse placerat nisl non viverra ultricies. Etiam vehicula condimentum semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris vulputate egestas ultricies. Pellentesque luctus nisi eu est convallis efficitur. Nam mattis neque in nunc fermentum, at accumsan massa tempus.
+    </div>
+    <div id="scroll">&#9650;</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $(window).scroll(function() {
+                if($(this).scrollTop() > 300) {
+                    $('#scroll').fadeIn();
+                } else {
+                    $('#scroll').fadeOut();
+                }
+            });
+
+            $('#scroll').click(function() {
+                $('html, body').animate({scrollTop:0}, 'slow');
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>
