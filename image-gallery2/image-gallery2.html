@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery 2</title>
+    <!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+    <style>
+        .container {
+            width: 60%;
+            overflow: auto;
+            margin: 100px auto;
+        }
+
+        .box {
+            width: 100px;
+            /* height: 100px; */
+            padding: 10px;
+        }
+
+        .box {
+            cursor: pointer;
+        }
+
+        .full-image {
+            width: 580px;
+            height: 580px;
+            padding: 10px;
+        }
+
+        .col {
+            float: right;
+        }
+
+        .full-image img {
+            width: 100%;
+            /* height: 100%; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="col">
+            <div class="box">
+            <img src="../images/trees_mountains.jpg" alt="Nature" style="width:100%">
+            </div>
+            <div class="box">
+            <img src="../images/snow_mountains.jpg" alt="Snow" style="width:100%">
+            </div>
+            <div class="box">
+            <img src="../images/mountain_landscape.jpg" alt="Mountains" style="width:100%">
+            </div>
+            <div class="box">
+            <img src="../images/skylights.jpg" alt="Lights" style="width:100%">
+            </div>
+        </div>
+        <div class="col">
+            <div class="full-image">
+                <img src="../images/trees_mountains.jpg" id="expandedImg" />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.box').click(function() {
+                $('.full-image').html($(this).html());
+            });
+        });
+
+    </script>
+</body>
+</html>
