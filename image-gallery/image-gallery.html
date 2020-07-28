@@ -32,6 +32,27 @@
       </div>
 
       <script>
+        $(document).ready(function() {
+            $(".column img").click(function() {
+              // console.clear();
+              var newclass = $(this).attr("src");
+              // console.log(newclass);
+              var oldclass = $("#expandedImg").attr("id");
+              // console.log(oldclass);
+
+              $(".container").show();
+              // show .container first
+
+              // Also you are using removeClass and addClass to add new image source. removeClass and addClass are ONLY for adding and removing CSS classes, nothing else.
+              // Data you have stored in newclass and oldclass are not CSS classes, those are variables with values and value is source of image in case of newclass, you just called variable newclass by name.
+
+              // You need to add source same way you get them and fill it with value from variable:
+              $("#expandedImg").attr('src', newclass).hide().fadeIn("slow");
+              // set new source and hide element in order to be able to fade it in again
+              // fade in works only on hidden elements
+            });
+        });
+
         // function myFunction(imgs) {
         //     var expandImg = document.getElementById("expandedImg");
         //     // var expandImg = $("#expandedImg");
@@ -73,19 +94,18 @@
         // });
         
         // $(document).ready(function() {
-        //     console.log('page loaded');
         //     $(".column img").click(function() {
         //         var newclass = $(this).attr("src");
-        //         console.log(newclass);
+        //         console.log('newclass', newclass);
         //         var oldclass = $("#expandedImg").attr("id");
-        //         console.log(oldclass);
+        //         console.log('oldclass', oldclass);
 
         //         $("#expandedImg").fadeOut(function() {
         //           $("#expandedImg").removeClass(oldclass).addClass(newclass).fadeIn("slow");
-        //           console.log(newclass);
+        //           console.log('image in #expandImg', newclass);
         //         });
         //     });
-        // }); 
+        // });
       </script>
 </body>
 </html>
