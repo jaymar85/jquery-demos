@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href="../jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../jquery-ui/external/jquery/jquery.js" type="text/javascript"></script>
+    <script src="../jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+</head>
+<body>      
+      <!-- The four columns -->
+      <div class="row">
+        <div class="column">
+          <img src="../images/trees_mountains.jpg" alt="Nature" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="../images/snow_mountains.jpg" alt="Snow" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="../images/mountain_landscape.jpg" alt="Mountains" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="../images/skylights.jpg" alt="Lights" style="width:100%">
+        </div>
+      </div>
+      
+      <div class="container">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <img id="expandedImg" style="width:100%" />
+      </div>
+
+      <script>
+        // function myFunction(imgs) {
+        //     var expandImg = document.getElementById("expandedImg");
+        //     // var expandImg = $("#expandedImg");
+        //     expandImg.src = imgs.src;
+        //     expandImg.parentElement.style.display = "block";
+        //     // expandImg.parent().css("display", "block");
+        // }
+        
+        // $(document).ready(function() {
+        //     $('.column img').on({
+        //         mouseover: function() {
+        //             $(this).css({
+        //                 'cursor': 'hand',
+        //                 'border-Color': 'red'
+        //             });
+        //         },
+        //         mouseout: function() {
+        //             $(this).css({
+        //                 'cursor': 'default',
+        //                 'border-Color': 'grey'
+        //             });
+        //         },
+        //         click: function() {
+        //             var imageURL = $(this).attr('src');
+        //             $('#expandedImg').fadeOut(500, function () {
+        //                 $(this).attr('src', imageURL);
+        //             }).fadeIn(500);
+        //         }
+        //     });
+        // });
+
+        // $(document).ready(function() {
+        //     $('.column img').on('click', function() {
+        //         var imageURL = $(this).attr('src');
+        //         $('#expandedImg').fadeOut(500, function () {
+        //             $(this).attr('src', imageURL);
+        //         }).fadeIn(500);
+        //     });
+        // });
+        
+        // $(document).ready(function() {
+        //     console.log('page loaded');
+        //     $(".column img").click(function() {
+        //         var newclass = $(this).attr("src");
+        //         console.log(newclass);
+        //         var oldclass = $("#expandedImg").attr("id");
+        //         console.log(oldclass);
+
+        //         $("#expandedImg").fadeOut(function() {
+        //           $("#expandedImg").removeClass(oldclass).addClass(newclass).fadeIn("slow");
+        //           console.log(newclass);
+        //         });
+        //     });
+        // }); 
+      </script>
+</body>
+</html>
