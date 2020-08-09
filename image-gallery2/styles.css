@@ -1,5 +1,7 @@
 body {
     font-family: 'Poppins', Verdana, Arial, sans-serif;
+    background-image: linear-gradient(to right, #6441a5, #2a0845);
+    /* background: purple; */
 }
 
 .fieldset {
