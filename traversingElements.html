@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <style>
+        div {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label>Source:</label>
+        <input type="text" onkeyup="toggleIcon()" />
+        <a><img src="https://img.icons8.com/material/2x/link.png" width="25px" /></a>
+    </div>
+    <script type="text/javascript">
+        var unlink_icon = "https://img.icons8.com/material-rounded/2x/delete-link.png";
+        var linkIcon = "https://img.icons8.com/material/2x/link.png";
+        
+        function toggleIcon() {
+            if($("input").val()) {
+                console.log($("input[type='text']").val());
+                $("img").attr("src", unlink_icon);
+            } else {
+                $("img").attr("src", linkIcon);
+            }
+        }
+    </script>
+</body>
+</html>

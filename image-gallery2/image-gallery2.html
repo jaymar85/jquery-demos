@@ -44,17 +44,20 @@
         <div class="col">
             <div class="box thumbnail-one">
                 <img src="https://http.cat/100" alt="Nature" style="width:100%">
+                <span class="closebtn">&times;</span>
             </div>
             <div class="box thumbnail-two">
-                <img src="https://http.cat/405" alt="Snow" style="width:100%">
+                <img src="https://http.cat/100" alt="Snow" style="width:100%">
+                <span class="closebtn">&times;</span>
             </div>
             <div class="box thumbnail-three">
-                <img src="https://http.cat/504" alt="Mountains" style="width:100%">
+                <img src="https://http.cat/100" alt="Mountains" style="width:100%">
+                <span class="closebtn">&times;</span>
             </div>
         </div>
         <div class="col">
             <div class="full-image">
-                <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+                <!-- <span class="closebtn">&times;</span> -->
                 <img src="https://http.cat/100" id="expandedImg" />
             </div>
         </div>
@@ -64,15 +67,19 @@
         const uploadForm = document.querySelector('.upload_form')
         let menuOpen = false;
         menuBtn.addEventListener('click', () => {
-            if(!menuOpen) {
-                menuBtn.classList.add('open');
+            /*if(!menuOpen) {
                 menuOpen = true;
+                menuBtn.classList.add('open');
                 uploadForm.classList.add('open')
             } else {
-                menuBtn.classList.remove('open');
                 menuOpen = false;
+                menuBtn.classList.remove('open');
                 uploadForm.classList.remove('open');
-            }
+            }*/
+
+            menuBtn.classList.toggle('open', !menuOpen);
+            uploadForm.classList.toggle('open', !menuOpen);
+            menuOpen = !menuOpen; //changing from true to false
         });
 
         $(document).ready(function() {
@@ -80,24 +87,89 @@
                 $('.full-image').html($(this).html());
             });
 
-            $('#delete_btn_1').click(function() {
-                $('#avatar1').val(''); 
+            // $('#delete_btn_1').click(function() {
+            //     $(files).val('');
+            // });
+
+            /*$(".closebtn").on("click", function () {
+                // Get thumbnail container
+                var $thumbnail = $(this).closest(".box");
+
+                // Get thumbnail image source attr to know if this is the image that is expanded
+                var imageSrc = $thumbnail.find('img').attr('src');
+
+                // Gets expanded <img />
+                var $expanded = $('#expandedImg');
+
+                // Remove the closed thumbnail
+                $thumbnail.remove();
+
+                // Its the current image in $expanded; change it
+                if (imageSrc === $expanded.attr('src')) {
+                    // Get first thumbnail image source
+                    var src = $('.box:first img').attr('src');
+
+                    // Update $expanded <img> with first thumbnail
+                    $expanded.attr('src', src);
+                }
+            });*/
+
+            $(".closebtn").on("click", function () {
+                var defaultSource = 'https://http.cat/100';
+
+                // Get thumbnail container
+                var $thumbnail = $(this).closest(".box");
+
+                // Get thumbnail image source attr to know if this is the image that is expanded
+                var $image = $thumbnail.find('img');
+                var imageSrc = $image.attr('src');
+
+                // Changes the image with default placeholder
+                $image.attr('src', defaultSource);
+
+                // Gets expanded <img />
+                var $expanded = $('#expandedImg');
+
+                // Its the current image in $expanded; change it
+                if (imageSrc === $expanded.attr('src')) {
+                    // Get first thumbnail image source
+                    var src = $('.box').not($thumbnail).first().find('img').attr('src');
+
+                    // Update $expanded <img> with first thumbnail
+                    $expanded.attr('src', src);
+                }
             });
 
             $("#submit_btn").on("click", function () {
                 var files = $("input[type=file]");
-                files.each(function (e) {
-                    if (this.files && this.files[0]) {
-                        let thumb = $(this).data('thumb');
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            $("." + thumb + " img").attr("src", e.target.result);
-                            $('.full-image img').attr("src", e.target.result);
-                            $("#avatar1").html(e.target.result);                      
+                files.each(function (index, file) {
+                    console.log(index, file)
+                    if (!this.files || !this.files[0]) return;
+                    console.log(!this.files, !this.files[0]);
+                    
+                    let thumb = $(this).data('thumb');
+                    var reader = new FileReader();
+                    
+                    // Async
+                    reader.onload = function (e) {
+                        $("." + thumb + " img").attr("src", e.target.result);
+
+                        // Set main image
+                        if (index === 0) {
+                            $('.full-image img').attr("src", e.target.result);      
                         }
-                        reader.readAsDataURL(this.files[0]);
+
+                        // Clear files inputs
+                        if (index === files.length - 1) {
+                            $(files).val('');
+                        }
                     }
-                });
+
+                    reader.readAsDataURL(this.files[0]);
+                    menuBtn.classList.remove('open');
+                    menuOpen = false;
+                    uploadForm.classList.remove('open');
+                });                
             });
         });
     </script>
