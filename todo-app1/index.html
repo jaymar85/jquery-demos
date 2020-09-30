@@ -13,31 +13,64 @@
         <div class="notcomp">
         <h3>Not Completed</h3>
 
-            <div class="task">
+            <!-- <div class="task">
                 task    
                 <i class="fas fa-trash-alt"></i>
                 <i class="fas fa-check"></i>
-            </div>
+            </div> -->
 
-            <div class="task">
+            <!-- <div class="task">
                 task    
                 <i class="fas fa-trash-alt"></i>
                 <i class="fas fa-check"></i>
-            </div>
+            </div> -->
         </div>
 
         <div class="comp">
             <h3>Completed</h3>
-            <div class="task">
+            <!-- <div class="task">
                 task    
                 <i class="fas fa-trash-alt"></i>
-            </div>
+            </div> -->
 
-            <div class="task">
+            <!-- <div class="task">
                 task    
                 <i class="fas fa-trash-alt"></i>
-            </div>
+            </div> -->
         </div>
     </div>
+    <script type="text/javascript">
+        $(function() {
+            $('.txtb').on('keyup', function(e) {
+                var addTodo = $(".txtb");
+                var complete = $(".comp");
+                // 13 means enter key
+                if(e.keyCode == 13 && (addTodo.val() != '' && addTodo.val().length != 0)) {
+                    var task = $("<div class='task'></div>").text(addTodo.val());
+
+                    var del = $("<i class='fas fa-trash-alt'></i>").click(function() {
+                        var p = $(this).parent();
+                        p.fadeOut(function() {
+                            p.remove();
+                        })
+                    });
+
+                    var check = $("<i class='fas fa-check'></i>").click(function() {
+                        var p = $(this).parent();
+                        p.fadeOut(function() {
+                            complete.append(p);
+                            p.fadeIn();
+                        })
+                        $(this).remove();
+                    });
+
+                    task.append(del, check)
+                    $(".notcomp").append(task)
+                    // to clear the input
+                    addTodo.val("")
+                }
+            })
+        });
+    </script>
 </body>
 </html>
