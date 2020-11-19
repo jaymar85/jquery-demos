@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <div class="item-info-wrap">
+            <div class="form-header">
+                <h3>Item Information:</h3>
+            </div>
+            <div>
+                <label for="item_template">Template:</label>
+                <input id="item_template" type="text" class="item_info_field" name="item_id" />
+                <a href="javascript:toggleLinkModal('link_popup', 'item_template');" class="item_info_icon-link tooltip-left" title="Link Template">
+                    <img src="/images/link-icon.png"/>
+                </a>
+            </div>
+            <div>
+                <label for="item_workflow">Workflow:</label>
+                <input id="item_workflow" type="text" class="item_info_field" name="item_id" />
+                <a href="javascript:toggleLinkModal('link_popup', 'item_workflow');" class="item_info_icon-link tooltip-left" title="Link Template">
+                    <img src="/images/link-icon.png"/>
+                </a>
+            </div>
+            <div>
+                <label for="item_form">Form:</label>
+                <input id="item_form" type="text" class="item_info_field" name="item_id" />
+                <a href="javascript:toggleLinkModal('link_popup', 'item_form');" class="item_info_icon-link tooltip-left" title="Link Template">
+                    <img src="/images/link-icon.png"/>
+                </a>
+            </div>
+            <div>
+                <label for="item_knowledge">Knowledge:</label>
+                <input id="item_knowledge" type="text" class="item_info_field" name="item_id" />
+                <a href="javascript:toggleLinkModal('link_popup', 'item_knowledge');" class="item_info_icon-link tooltip-left" title="Link Template">
+                    <img src="/images/link-icon.png"/>
+                </a>
+            </div>
+            <div>
+                <label for="item_product">Product:</label>
+                <input id="item_product" type="text" class="item_info_field" name="item_id" />
+                <a href="javascript:toggleLinkModal('link_popup', 'item_product');" class="item_info_icon-link tooltip-left" title="Link Template">
+                    <img src="/images/link-icon.png"/>
+                </a>
+            </div>
+            <div>
+                <label for="item_video">Video:</label>
+                <input id="item_video" type="text" class="item_info_field" name="item_id" />
+                <a href="javascript:toggleLinkModal('link_popup', 'item_video');" class="item_info_icon-link tooltip-left" title="Link Template">
+                    <img src="/images/link-icon.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function toggleLinkIcon(inputId, inputTitle) {
+            "use strict";
+            var $input = jQuery("#" + inputId),
+                link_icon = '/images/link-icon.png',
+                unlink_icon = '/images/unlink-icon.png';
+                getChild = $input.next().children()[0];
+                console.log(getChild);
+            if($input.length && $input.val().length) {
+                inputTitle = inputTitle.replace("Link", "Unlink");
+                jQuery(getChild).attr("src", unlink_icon).attr("title", inputTitle);
+            } else {
+                inputTitle = inputTitle.replace("Unlink", "Link");
+                jQuery(getChild).attr("src", link_icon).attr("title", inputTitle);
+            }
+        }
+
+        jQuery(function() {
+            "use strict";
+            jQuery(".item_info_field").each(function(i, el) {
+                jQuery(el).on("input", function(e) {
+                    var item_id = jQuery(this).prop("id"),
+                        item_title = jQuery(this).next("a").attr("title");
+
+                    if(e) {
+                        toggleLinkIcon(item_id, item_title);
+                    }
+                });
+            });
+        });
+
+        // function toggleLinkIcon(inputId, inputTitle) {
+        //     "use strict";
+        //     var $input = jQuery("#" + inputId),
+        //         link_icon = '/images/link-icon.png',
+        //         getChild = $input.next().children()[0];
+            
+        //     if($input.length && $input.val().length) {
+        //         link_icon = '/images/unlink-icon.png';
+        //         inputTitle = inputTitle.replace("Link", "Unlink");
+        //     } else {
+        //         inputTitle = inputTitle.replace("Unlink", "Link");
+        //     }
+        //     jQuery(getChild).attr("src", link_icon).attr("title", inputTitle);
+        // }
+    </script>
+</body>
+</html>

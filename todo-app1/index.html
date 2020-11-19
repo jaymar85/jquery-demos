@@ -48,6 +48,7 @@
                 if(e.keyCode == 13 && (addTodo.val() != '' && addTodo.val().length != 0)) {
                     var task = $("<div class='task'></div>").text(addTodo.val());
 
+                    // delete button
                     var del = $("<i class='fas fa-trash-alt'></i>").click(function() {
                         var p = $(this).parent();
                         p.fadeOut(function() {
@@ -55,6 +56,7 @@
                         })
                     });
 
+                    // check button
                     var check = $("<i class='fas fa-check'></i>").click(function() {
                         var p = $(this).parent();
                         p.fadeOut(function() {
