@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Work+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Copy To Clipboard</title>
+    <style>
+        p {
+            color: #262626;
+            font-family: 'Work Sans', sans-serif;
+        }
+        .copyButton {
+            background-color: #48b0ed;
+            padding: 5px 15px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .alert {
+            position: absolute;
+            margin: auto;
+            background-color: #101a2d;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="text1">This is some text to be copied.</p>
+    <button class="copyButton" id="copyButton1">Copy To Clipboard</button>
+    <p id="text2">Another text to be copied.</p>
+    <button class="copyButton" id="copyButton2">Copy To Clipboard</button>
+    <span class="alert">Copied</span>
+    <script>
+        function copy(copyId) {
+            var $input = $("<input>");
+            $("body").append($input);
+            $input.val($(""+copyId).text()).select();
+            if(document.execCommand("copy")) {
+                // console.log(document.execCommand("copy"));
+                $(".alert").slideUp(1000, function() {
+                    $(".alert").slideDown();
+                });
+            } 
+            $input.remove();
+        }
+
+        $(document).ready(function() {
+            $("#copyButton1").click(function() {
+                copy("#text1");
+            });
+            $("#copyButton2").click(function() {
+                copy("#text2");
+            });
+        });
+    </script>
+</body>
+</html>
